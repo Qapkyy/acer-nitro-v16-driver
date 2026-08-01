@@ -12,7 +12,7 @@ Linux platform frameworks, including physical firmware-bound thermal profiles,
 direct fan hardware monitoring/speed automation, and non-volatile battery
 charging health limits.
 
-1. System Prerequisites
+System Prerequisites
 -----------------------
 
     Before executing the compiled automated structures, verify that your
@@ -22,7 +22,7 @@ charging health limits.
     * Linux Kernel Version: 6.x or newer recommended.
     * Base System Packages: linux-headers (or linux-devel depending on
       distribution) and standard build essentials (gcc, make, openssl).
-2. Installation (assume secure boot active.)
+Installation (assume secure boot active.)
 --------------------------------------------
 
     chmod +x setup.sh
@@ -30,4 +30,64 @@ charging health limits.
 
     * To examine target unit execution tracking logs:
       sudo systemctl status qapkyy_qy.service
+
+How to usage?
+--------------------------------------------
+
+1. Battery Calibration
+This function calibrates your battery to provide a more accurate percentage reading. It involves charging the battery to 100%, draining it to 0%, and recharging it back to 100%. Do not unplug the laptop from AC power during calibration.
+
+    1 – Start calibration
+    0 – Stop calibration
+
+To check the current status:
+
+cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_calibration
+
+To change the state:
+
+echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_calibration
+
+2. Battery Limiter
+Limits battery charging to 80%, preserving battery health for laptops primarily used while plugged into AC power.
+
+    1 – Enabled
+    0 – Disabled
+
+To check the current status:
+
+cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_limiter
+
+To change the state:
+
+echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_limiter
+
+3. Fan Speed
+Controls the CPU and GPU fan speeds.
+
+    0 – Auto
+    1 – Minimum fan speed (recommended if you stupid)
+    100 – Maximum fan speed
+    Other values like 50, 55, 70 can be set according to your preference.
+
+Example (set CPU to 50 and GPU to 70):
+
+echo 50,70 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/fan_speed
+
+4. USB Charging
+Allows the USB charging port to provide power even when the laptop is off.
+
+    0 – Disabled
+    10 – Provides power until battery reaches 10%
+    20 – Provides power until battery reaches 20%
+    30 – Provides power until battery reaches 30%
+
+To check the current status:
+
+cat /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/usb_charging
+
+To change the state:
+
+echo 20 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/usb_charging
+
 
