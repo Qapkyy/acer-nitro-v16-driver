@@ -90,4 +90,17 @@ To change the state:
 
 echo 20 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/usb_charging
 
+5. Thermal Profiles
+To probe the current thermal profile:
 
+cat /sys/firmware/acpi/platform_profile
+
+To check the supported thermal profile:
+
+cat /sys/firmware/acpi/platform_profile_choices
+
+To switch the platform profile:
+
+echo balanced | sudo tee /sys/firmware/acpi/platform_profile
+
+Replace the balanced with the supported profile you have.
