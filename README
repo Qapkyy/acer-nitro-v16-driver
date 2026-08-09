@@ -42,11 +42,11 @@ This function calibrates your battery to provide a more accurate percentage read
 
 To check the current status:
 
-cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_calibration
+cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/battery_calibration
 
 To change the state:
 
-echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_calibration
+echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/battery_calibration
 
 2. Battery Limiter
 Limits battery charging to 80%, preserving battery health for laptops primarily used while plugged into AC power.
@@ -56,11 +56,11 @@ Limits battery charging to 80%, preserving battery health for laptops primarily 
 
 To check the current status:
 
-cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_limiter
+cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/battery_limiter
 
 To change the state:
 
-echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/predator_sense/battery_limiter
+echo 1 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/battery_limiter
 
 3. Fan Speed
 Controls the CPU and GPU fan speeds.
@@ -72,7 +72,7 @@ Controls the CPU and GPU fan speeds.
 
 Example (set CPU to 50 and GPU to 70):
 
-echo 50,70 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/fan_speed
+echo 50,70 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
 
 4. USB Charging
 Allows the USB charging port to provide power even when the laptop is off.
@@ -84,11 +84,11 @@ Allows the USB charging port to provide power even when the laptop is off.
 
 To check the current status:
 
-cat /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/usb_charging
+cat /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
 
 To change the state:
 
-echo 20 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/predator_sense/usb_charging
+echo 20 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
 
 5. Thermal Profiles
 To probe the current thermal profile:
