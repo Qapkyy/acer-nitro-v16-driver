@@ -72,7 +72,7 @@ Controls the CPU and GPU fan speeds.
 
 Example (set CPU to 50 and GPU to 70):
 
-echo 50,70 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
+echo 50,70 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
 
 4. USB Charging
 Allows the USB charging port to provide power even when the laptop is off.
@@ -84,11 +84,11 @@ Allows the USB charging port to provide power even when the laptop is off.
 
 To check the current status:
 
-cat /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
+cat /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
 
 To change the state:
 
-echo 20 | sudo tee /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
+echo 20 | sudo tee /sys/module/qapkyy_qy/drivers/platform:acer-wmi/acer-wmi/nitro_sense/usb_charging
 
 5. Thermal Profiles
 To probe the current thermal profile:
